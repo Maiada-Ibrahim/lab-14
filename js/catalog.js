@@ -1,6 +1,8 @@
 /* global Product, Cart */
 
 'use strict';
+let divEL = document.getElementById('cartContents')
+let tbEL = document.getElementById('cart')
 
 // Set up an empty cart for use on this page.
 const cart = new Cart([]);
@@ -12,10 +14,10 @@ function populateForm() {
   //TODO: Add an <option> tag inside the form's select for each product
   const selectElement = document.getElementById('items');
   for (let i in Product.allProducts) {
-       let option=document.createElement('option');   
-       option.textContent=Product.allProducts[i].name;  
-       option.value=Product.allProducts[i].name;  
-         selectElement.appendChild(option);
+    let option = document.createElement('option');
+    option.textContent = Product.allProducts[i].name;
+    option.value = Product.allProducts[i].name;
+    selectElement.appendChild(option);
   }
 
 }
@@ -25,21 +27,44 @@ function populateForm() {
 // so that it shows the # of items in the cart and a quick preview of the cart itself.
 function handleSubmit(event) {
   event.preventDefault();
+  let trEL = document.createElement('tr')
+  let tdEL = document.createElement('td')
+  //let x = document.getElementById("items");
+  let H = event.target.items.value;
+  tdEL.textContent = H
+  trEL.appendChild(tdEL)
+  //let numEl = document.getElementById('quantity')
+  let numitem = event.target.quantity.value;
+  let tdqEL = document.createElement('td')
+  tdqEL.textContent = numitem
+ 
+  trEL.appendChild(tdqEL)
+  divEL.appendChild(trEL)
+
 
 
   // TODO: Prevent the page from reloading
 
   // Do all the things ...
-  addSelectedItemToCart();
-  cart.saveToLocalStorage();
-  updateCounter();
-  updateCartPreview();
+  //addSelectedItemToCart();
+  Cart.addItem(H,numitem)
+ Cart.saveToLocalStorage();
+  //updateCounter();
+  //updateCartPreview();
 
 }
+
+
+
 
 // TODO: Add the selected item and quantity to the cart
 function addSelectedItemToCart() {
   
+
+  
+
+
+
   // TODO: suss out the item picked from the select list
   // TODO: get the quantity
   // TODO: using those, add one item to the Cart
@@ -47,7 +72,7 @@ function addSelectedItemToCart() {
 }
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
-function updateCounter() {}
+function updateCounter() { }
 
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {

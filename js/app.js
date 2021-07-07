@@ -1,23 +1,30 @@
 'use strict';
 
 // Cart constructor.
+
+let cartarray=[]
+
 const Cart = function(items) {
   // this.items is an array of CartItem instances.
   this.items = items;
+  cartarray.push(this)
+  
 };
 
 Cart.prototype.addItem = function(product, quantity) {
   // TODO: Fill in this instance method to create a new CartItem and add it to this.items
+  let ite=[]
   let names=product;
   let quan=quantity
-  let items=[]
-  let newitem = new Cart(product,quantity)
-  items.push(newitem)
+  ite.push(names)
+  ite.push(quantity)
+  let newitem =new Cart(ite)
+  
 };
-
+console.log(this.items)
 Cart.prototype.saveToLocalStorage = function() {
   // TODO: Fill in this instance method to save the contents of the cart to localStorage
-  let data = JSON.stringify(this.items);
+  let data = JSON.stringify(this.item);
   localStorage.setItem('cartitem', data);
 };
 
