@@ -8,8 +8,8 @@ const Cart = function(items) {
 
 Cart.prototype.addItem = function(product, quantity) {
   // TODO: Fill in this instance method to create a new CartItem and add it to this.items
-  let product=product
-  let quantity=quantity
+  let names=product;
+  let quan=quantity
   let items=[]
   let newitem = new Cart(product,quantity)
   items.push(newitem)
@@ -24,6 +24,7 @@ Cart.prototype.saveToLocalStorage = function() {
 Cart.prototype.removeItem = function(item) {
   // TODO: Fill in this instance method to remove one item from the cart.
   // Note: You will have to decide what kind of parameter to pass in here!
+  let items = item 
   localStorage.removeItem('cartitem')
 
   
