@@ -34,6 +34,7 @@ let allqunt = []
 function handleSubmit(event) {
   event.preventDefault();
   let nameofitem = event.target.items.value;
+  console.log(nameofitem )
   let numitem = parseInt(event.target.quantity.value)
   allproname.push(nameofitem)
   allqunt.push(numitem)
@@ -78,9 +79,9 @@ function addSelectedItemToCart(event) {
   event.preventDefault();
 
   let nameofitem = event.target.items.value
-  console.log(nameofitem)
+  //console.log(nameofitem)
   let numitem = parseInt(event.target.quantity.value)
-  console.log(numitem)
+  //console.log(numitem)
   cart.addItem(nameofitem, numitem)
 
   // TODO: suss out the item picked from the select list
@@ -96,10 +97,10 @@ function updateCounter() {
   pEL.textContent = `${cart.items.length}`
   countEL.appendChild(pEL)
 
-  console.log(cart.items.length)
+  //console.log(cart.items.length)
 }
 pEL.textContent = 0
-countEL.appendChild(pEL)
+countEL.appendChild(pEL)+9540
 
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview(event) {
